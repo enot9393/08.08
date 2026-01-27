@@ -38,7 +38,7 @@
         .lace-overlay {
             position: absolute;
             inset: 0;
-            background-image: 
+            background-image:
                 radial-gradient(ellipse 4px 4px at 25% 15%, rgba(211,47,47,0.3) 0%, transparent 50%),
                 radial-gradient(ellipse 3px 3px at 75% 20%, rgba(198,40,40,0.25) 0%, transparent 50%),
                 radial-gradient(ellipse 2px 2px at 10% 85%, rgba(183,28,28,0.2) 0%, transparent 50%),
@@ -97,33 +97,35 @@
             }
         }
 
+        /* УЗКИЕ ПОЛЯ, ШИРОКИЙ ТЕКСТ */
         .container {
-            max-width: 1100px;
+            max-width: 900px; /* УЗЖЕ */
             margin: 0 auto;
-            padding: 70px 40px;
+            padding: 50px 20px; /* МЕНЬШЕ ОТСТУПОВ */
             text-align: center;
             position: relative;
             z-index: 10;
         }
 
-        .section {
+        .section, .events-section, .hint-section, .form-section {
             background: rgba(255,255,255,0.6);
             backdrop-filter: blur(25px);
             border: 1px solid rgba(255,255,255,0.4);
             border-radius: 40px;
-            padding: 70px 60px;
-            margin: 60px 0;
-            box-shadow: 
+            padding: 50px 40px; /* УЗЖЕ ВНУТРЕННИЕ ПОЛЯ */
+            margin: 40px 0; /* МЕНЬШЕ ВНЕШНИХ ОТСТУПОВ */
+            box-shadow:
                 0 25px 60px rgba(211,47,47,0.12),
                 inset 0 1px 0 rgba(255,255,255,0.8);
             transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
+            max-width: 100%; /* ПОЛНАЯ ШИРИНА В БЛОКЕ */
         }
 
-        .section:hover {
+        .section:hover, .events-section:hover, .hint-section:hover, .form-section:hover {
             transform: translateY(-10px);
-            box-shadow: 
+            box-shadow:
                 0 35px 80px rgba(211,47,47,0.2),
                 inset 0 1px 0 rgba(255,255,255,1);
             background: rgba(255,255,255,0.75);
@@ -131,7 +133,7 @@
 
         .ceremony-title {
             font-family: 'Cinzel', serif;
-            font-size: clamp(2rem, 6vw, 4rem);
+            font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 600;
             background: linear-gradient(135deg, #c62828 0%, #d32f2f 50%, #b71c1c 100%);
             -webkit-background-clip: text;
@@ -139,13 +141,12 @@
             background-clip: text;
             margin-bottom: 35px;
             letter-spacing: 2px;
-            padding: 0 20px; 
+            padding: 0 20px;
         }
 
-        /* ЕЩЕ МЕНЬШЕ И В ДВЕ СТРОКИ */
         .names-section {
             font-family: 'PT Serif', serif;
-            font-size: clamp(1rem, 3vw, 2rem); /* ЕЩЕ МЕНЬШЕ */
+            font-size: clamp(1.8rem, 5vw, 3rem);
             font-weight: 400;
             font-style: italic;
             background: linear-gradient(135deg, #8b0000 0%, #a52714 100%);
@@ -179,11 +180,11 @@
         }
 
         @keyframes gentlePulse {
-            0%, 100% { 
+            0%, 100% {
                 transform: scale(1);
                 text-shadow: 0 1px 6px rgba(211,47,47,0.3);
             }
-            50% { 
+            50% {
                 transform: scale(1.02);
                 text-shadow: 0 1px 8px rgba(211,47,47,0.4);
             }
@@ -192,16 +193,16 @@
         .couple-photos {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin: 80px 0;
-            max-width: 950px;
+            gap: 40px; /* МЕНЬШЕ */
+            margin: 60px 0;
+            max-width: 800px; /* УЗЖЕ */
             margin-left: auto;
             margin-right: auto;
         }
 
         .photo-container {
             position: relative;
-            padding: 50px 30px;
+            padding: 40px 25px; /* УЗЖЕ */
             backdrop-filter: blur(20px);
             background: rgba(255,255,255,0.4);
             border-radius: 35px;
@@ -216,16 +217,16 @@
         }
 
         .photo-circle {
-            width: 240px;
-            height: 240px;
-            margin: 0 auto 30px;
+            width: 220px; /* ЧУТЬ МЕНЬШЕ */
+            height: 220px;
+            margin: 0 auto 25px;
             border-radius: 50%;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            box-shadow: 
+            box-shadow:
                 0 20px 50px rgba(211,47,47,0.2),
                 inset 0 2px 0 rgba(255,255,255,0.9);
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -234,7 +235,7 @@
 
         .photo-container:hover .photo-circle {
             transform: scale(1.08);
-            box-shadow: 
+            box-shadow:
                 0 30px 70px rgba(211,47,47,0.35),
                 inset 0 3px 0 rgba(255,255,255,1);
             border-color: rgba(211,47,47,0.3);
@@ -252,15 +253,14 @@
             background-position: center;
         }
 
-                .photo-circle::before,
+        .photo-circle::before,
         .groom-photo::before,
         .bride-photo::before {
             display: none !important;
         }
 
-
         .photo-name {
-            font-size: 2em;
+            font-size: 1.8em; /* ЧУТЬ МЕНЬШЕ */
             font-weight: 600;
             background: linear-gradient(135deg, #d32f2f, #b71c1c);
             -webkit-background-clip: text;
@@ -270,40 +270,12 @@
             font-family: 'Cinzel', serif;
         }
 
-        .events-section {
-            background: rgba(255,255,255,0.6);
-            backdrop-filter: blur(25px);
-            border: 1px solid rgba(255,255,255,0.4);
-            border-radius: 40px;
-            padding: 70px 60px;
-            margin: 60px 0;
-            box-shadow: 
-                0 25px 60px rgba(211,47,47,0.12),
-                inset 0 1px 0 rgba(255,255,255,0.8);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .events-section:hover {
-            transform: translateY(-10px);
-            box-shadow: 
-                0 35px 80px rgba(211,47,47,0.2),
-                inset 0 1px 0 rgba(255,255,255,1);
-            background: rgba(255,255,255,0.75);
-        }
-         .events-title {
-            font-family: 'Cinzel', serif;
-            font-size: 2.2rem;
-            color: #b71c1c;
-            margin-bottom: 40px;
-            font-weight: 600;
-        }
-
         .event-item {
             background: rgba(255,255,255,0.3);
             backdrop-filter: blur(15px);
             border-radius: 25px;
-            padding: 45px 35px;
-            margin: 30px 0;
+            padding: 35px 25px; /* УЗЖЕ */
+            margin: 25px 0;
             border: 1px solid rgba(255,255,255,0.2);
             transition: all 0.5s ease;
             text-align: left;
@@ -318,15 +290,15 @@
         }
 
         .event-icon {
-            font-size: 3.5rem;
-            margin-right: 30px;
+            font-size: 3rem; /* ЧУТЬ МЕНЬШЕ */
+            margin-right: 25px; /* МЕНЬШЕ */
             color: #d32f2f;
             filter: drop-shadow(0 0 10px rgba(211,47,47,0.4));
             flex-shrink: 0;
         }
 
         .event-info h3 {
-            font-size: 1.4em;
+            font-size: 1.3em;
             color: #b71c1c;
             font-weight: 600;
             margin-bottom: 12px;
@@ -334,14 +306,14 @@
         }
 
         .event-time {
-            font-size: 1.6em;
+            font-size: 1.5em;
             color: #d32f2f;
             font-weight: 500;
             margin-bottom: 8px;
         }
 
         .event-location {
-            font-size: 1.2em;
+            font-size: 1.1em;
             color: #4a2c2c;
             line-height: 1.6;
         }
@@ -350,11 +322,11 @@
             background: rgba(255,255,255,0.95);
             backdrop-filter: blur(25px);
             border-radius: 25px;
-            padding: 40px 60px;
+            padding: 35px 45px; /* УЗЖЕ */
             box-shadow: 0 20px 50px rgba(211,47,47,0.2);
             border: 1px solid rgba(255,255,255,0.4);
-            margin: 60px auto;
-            max-width: 650px;
+            margin: 50px auto;
+            max-width: 600px; /* УЗЖЕ */
             width: 90%;
             text-align: center;
             animation: countdownFloat 6s ease-in-out infinite;
@@ -362,9 +334,9 @@
 
         .countdown h3 {
             font-family: 'Cinzel', serif;
-            font-size: 1.6em;
+            font-size: 1.5em;
             color: #d32f2f;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             font-weight: 600;
             letter-spacing: 1px;
         }
@@ -372,19 +344,19 @@
         .countdown-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            gap: 18px;
             margin-bottom: 15px;
         }
 
         .countdown-item {
             background: rgba(255,255,255,0.7);
             border-radius: 15px;
-            padding: 20px 10px;
+            padding: 18px 8px;
             border: 2px solid rgba(211,47,47,0.2);
         }
 
         .countdown-number {
-            font-size: 2.8em;
+            font-size: 2.5em;
             font-weight: 700;
             background: linear-gradient(135deg, #d32f2f, #c62828);
             -webkit-background-clip: text;
@@ -396,43 +368,77 @@
         }
 
         .countdown-label {
-            font-size: 0.9em;
+            font-size: 0.85em;
             color: #8b0000;
             font-weight: 500;
             margin-top: 5px;
         }
 
-        .final-call {
-            font-size: 1.9em;
-            background: linear-gradient(135deg, #8b0000 0%, #a52714 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 100px 0;
-            font-style: italic;
-            font-weight: 400;
-            letter-spacing: 1px;
-            padding: 0 30px;
+        /* НОВЫЙ БЛОК ПОДСКАЗКИ */
+        .hint-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(253,248,245,0.9));
         }
-          .final-call1 {
-            font-size: 1em;
-            background: linear-gradient(135deg, #8b0000 0%, #a52714 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin: 100px 0;
+
+        .hint-text {
+            font-size: 1.4em;
             font-style: italic;
-            font-weight: 400;
-            letter-spacing: 1px;
-            padding: 0 30px;
+            color: #8b0000;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
-        .final-call2 {
+
+        .hint-icon {
+            font-size: 4rem;
+            color: #d32f2f;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 8px rgba(211,47,47,0.3));
+        }
+
+        /* НОВЫЙ БЛОК ФОРМЫ */
+        .form-section {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(254,248,245,0.95));
+            border-color: rgba(211,47,47,0.3);
+        }
+
+        .form-link {
+            display: inline-block;
+            background: linear-gradient(135deg, #d32f2f, #c62828);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 30px;
+            text-decoration: none;
             font-size: 0.8em;
+            font-weight: 600;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+            box-shadow: 0 15px 40px rgba(211,47,47,0.3);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .form-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(211,47,47,0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .form-text {
+            font-size: 1.2em;
+            color: #4a2c2c;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .final-call {
+            font-size: 1.8em;
             background: linear-gradient(135deg, #8b0000 0%, #a52714 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin: 100px 0;
+            margin: 80px 0;
             font-style: italic;
             font-weight: 400;
             letter-spacing: 1px;
@@ -440,13 +446,13 @@
         }
 
         .signatures {
-            font-size: 1.9em;
+            font-size: 1.7em;
             color: #8b0000;
             font-style: italic;
             font-weight: 300;
-            padding-top: 60px;
-            max-width: 700px;
-            margin: 0 auto 80px;
+            padding-top: 50px;
+            max-width: 600px;
+            margin: 0 auto 60px;
             position: relative;
         }
 
@@ -467,7 +473,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-size: 1.5em;  /* 2.4 */
+            font-size: 2.2em;
             font-family: 'Cinzel', serif;
             display: block;
             margin-top: 20px;
@@ -479,41 +485,40 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                padding: 30px 15px;
+            }
             .couple-photos {
                 grid-template-columns: 1fr;
-                gap: 35px;
+                gap: 30px;
             }
             .photo-circle {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
             }
-             .event-item {
+            .event-item {
                 flex-direction: column;
                 text-align: center;
-                padding: 35px 25px;
+                padding: 30px 20px;
             }
             .event-icon {
                 margin-right: 0;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
-            .events-section {
-                padding: 50px 30px;
+            .section, .events-section, .hint-section, .form-section {
+                padding: 40px 25px;
+                margin: 30px 10px;
             }
             .countdown {
-                padding: 30px 40px;
+                padding: 25px 30px;
+                max-width: 90%;
             }
             .countdown-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
+                gap: 12px;
             }
-             .event-location {
-                font-size: 1em; /* Меньше шрифт */
-                padding: 0 10px; /* Отступы внутри */
-                word-wrap: break-word;
-                hyphens: auto;
-            }
-            .event-item {
-                margin: 25px 0; /* Меньше отступы между элементами */
+            .hint-text {
+                font-size: 1.2em;
             }
         }
     </style>
@@ -532,11 +537,11 @@
         <!-- Заголовок -->
         <div class="section">
             <div class="ceremony-title">Антон & Варвара</div>
-            <!-- МЕНЬШЕ И В ДВЕ СТРОКИ -->
             <div class="names-section">
-                <span class="first-line">В наших сердцах зарождается великое счастье — тот самый день, когда наши жизни сплетутся в единое целое. День, который мы будем беречь в памяти как самое светлое сокровище.
-Без Вас этот праздник был бы неполным. Вы — те самые люди, чья любовь взрастила наши чувства, чьи молитвы и тепло сопровождали нас до этого порога.
-С трепетом и любовью приглашаем Вас разделить с нами радость рождения нашей семьи! 💕</span>
+                <span class="first-line">В наших сердцах зарождается великое счастье — тот самый день, когда наши жизни сплетутся в единое целое. 
+                    День, который мы будем беречь в памяти как самое светлое сокровище. Без Вас этот праздник был бы неполным. 
+                    Вы — те самые люди, чья любовь взрастила наши чувства, чьи молитвы и тепло сопровождали нас до этого порога. 
+                    С трепетом и любовью приглашаем Вас разделить с нами радость рождения нашей семьи! 💕</span>
             </div>
         </div>
 
@@ -545,16 +550,16 @@
             <div class="photo-container">
                 <div class="photo-circle groom-photo"></div>
                 <div class="photo-name">Антон</div>
-                <div style="font-size: 1.3em; color: #666; margin-top: 8px;">Жених с большим сердцем</div>
+                <div style="font-size: 1.2em; color: #666; margin-top: 8px;">Жених с большим сердцем</div>
             </div>
             <div class="photo-container">
                 <div class="photo-circle bride-photo"></div>
                 <div class="photo-name">Варвара</div>
-                <div style="font-size: 1.3em; color: #666; margin-top: 8px;">Невеста мечты</div>
+                <div style="font-size: 1.2em; color: #666; margin-top: 8px;">Невеста мечты</div>
             </div>
         </div>
 
-        <!-- РАЗДЕЛЕННЫЙ ОБРАТНЫЙ ОТСЧЕТ -->
+        <!-- ОБРАТНЫЙ ОТСЧЕТ -->
         <div class="countdown" id="countdown">
             <h3>До регистрации брака</h3>
             <div class="countdown-grid">
@@ -579,13 +584,11 @@
 
         <!-- СОБЫТИЯ -->
         <div class="events-section">
-        <div class="event-info">
-        <h3>Программа торжества</h3>
             <div class="event-item">
                 <div class="event-icon">💍</div>
                 <div class="event-info">
                     <h3>Регистрация брака</h3>
-                    <div class="event-time">8 августа 2026 • 11:00</div>
+                    <div class="event-time">08 августа 2026 • 11:00</div>
                     <div class="event-location">ЗАГС, ул. Юргановская, 66, г. Чердынь</div>
                 </div>
             </div>
@@ -593,7 +596,7 @@
                 <div class="event-icon">⛪</div>
                 <div class="event-info">
                     <h3>Венчание</h3>
-                    <div class="event-time">9 августа 2026 • 12:00</div>
+                    <div class="event-time">09 августа 2026 • 12:00</div>
                     <div class="event-location">храм РДЦ Николы Чудотворца, д. Ванькова</div>
                 </div>
             </div>
@@ -601,22 +604,34 @@
                 <div class="event-icon">🍽️</div>
                 <div class="event-info">
                     <h3>Пир</h3>
-                    <div class="event-time">9 августа 2026 • 18:00</div>
+                    <div class="event-time">09 августа 2026 • 18:00</div>
                     <div class="event-location">Керос, д. Ванькова</div>
                 </div>
             </div>
         </div>
 
+        <!-- НОВЫЙ БЛОК ПОДСКАЗКИ -->
+        <div class="hint-section">
+            <div class="hint-icon">🎁 Подсказка</div>
+            <div class="hint-text">
+                Будем благодарны, если вы воздержитесь от пышных букетов и замените их бутылочкой горячительного напитка для пополнения домашнего мини-бара
+            </div>
+        </div>
+
         <div class="final-call">
-            С радостью ждем Вас в эти особенные дни! 
+            С радостью ждем вас в эти особенные дни!
         </div>
-        <div class="final-call1">
-            Чтобы всё прошло идеально, пожалуйста, заполните эту короткую форму до 1 июня. 
+
+        <!-- НОВЫЙ БЛОК ФОРМЫ -->
+        <div class="form-section">
+            <div class="form-text">
+                Чтобы все прошло идеально, пожалуйста, заполните короткую форму до 1 июня
+            </div>
+            <a href="https://forms.gle/rMv2GZYj23JVS7o56" target="_blank" class="form-link">
+                Заполнить форму
+            </a>
         </div>
-            <div class="final-call2">
-            https://forms.gle/rMv2GZYj23JVS7o56
-        </div>
-            
+
         <div class="signatures">
             С верой в вечную любовь,<br>
             <strong>Антон и Варвара</strong>
@@ -639,7 +654,7 @@
             }
         }
 
-        // Обновленный обратный отсчет с отдельными блоками
+        // Обновленный обратный отсчет
         function updateCountdown() {
             const weddingDate = new Date('2026-08-08T11:00:00');
             const now = new Date();
@@ -671,26 +686,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
